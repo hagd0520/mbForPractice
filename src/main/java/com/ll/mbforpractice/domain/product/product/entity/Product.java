@@ -1,11 +1,9 @@
-package com.ll.mbforpractice.domain.book.book.entity;
+package com.ll.mbforpractice.domain.product.product.entity;
 
 import com.ll.mbforpractice.domain.member.member.entity.Member;
-import com.ll.mbforpractice.domain.product.product.entity.Product;
 import com.ll.mbforpractice.global.jpa.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.*;
 
 import static lombok.AccessLevel.PROTECTED;
@@ -17,14 +15,11 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Book extends BaseEntity {
+public class Product extends BaseEntity {
     @ManyToOne
-    private Member author;
-    @OneToOne
-    private Product product;
-    private String title;
-    private String body;
+    private Member maker;
+    private String relTypeCode; // 상품명
+    private Long relId; // 해당 상품의 id 값
+    private String name;
     private Long price;
-
-
 }
